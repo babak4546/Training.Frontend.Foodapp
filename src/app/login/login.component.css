@@ -1,0 +1,39 @@
+#frame{
+    height: 100vh;
+    background-color: #FFDAB9;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+}
+.example-card {
+    max-width: 400px;
+    background-color:#FFB6C1;
+    border-radius: 5%;
+
+  }
+  
+  .example-header-image {
+    background-image: url('../../assets/images/logo.png');
+    background-size: cover;
+   }
+
+#login{
+    background-color: #E67E22;
+}
+#register{
+ background-color: #8E44AD;
+}
+
+#backImage{
+    height:50vh;
+}
+.login-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .login-full-width {
+    width: 100%;
+    
+  }
