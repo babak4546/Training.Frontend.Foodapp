@@ -1,59 +1,60 @@
-<div id="frame">
+<div class="background">
+  
+  <div id="frame">
     <div id="login">
 
     </div>
     <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>F̲r̲e̲s̲h̲B̲i̲t̲e̲s̲</mat-card-title>
-  
-        </mat-card-header>
-        <img id="backImage" mat-card-image src="../../assets/images/foodback.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            
-          <h2>
-            &nbsp;&nbsp;&nbsp;&nbsp;L̼o̼g̼i̼n̼/C̼r̼e̼a̼t̼e̼  y̼o̼u̼r̼ F̼o̼o̼d̼i̼e̼ A̼c̼c̼o̼u̼n̼t̼
-          </h2>
-          <form class="login-form">
-            <mat-form-field class="login-full-width">
-              <mat-label>username</mat-label>
-              <input type="text" matInput [formControl]="username"  
-                     placeholder="rose1">
-              <mat-hint>enter your username </mat-hint>
-              <mat-error *ngIf="username.hasError('required')">
-                Username is <strong>required</strong></mat-error>
-              <mat-error *ngIf="username.hasError('minlength')">
-                Username must be  <strong>at least 6 characters long</strong>
-              </mat-error>
-              <mat-error *ngIf="username.hasError('maxlength')">
-                Username must be  <strong>at most 16 characters</strong>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field class="login-full-width">
-                <mat-label>password</mat-label>
-                <input type="text" matInput [formControl]="password"  
-                       placeholder="aB123456">
-                <mat-hint>enter your password </mat-hint>
-                <mat-error *ngIf="password.hasError('required')">
-                    Password is <strong>required</strong></mat-error>
-                <mat-error *ngIf="password.hasError('minlength')">
-                    Password must be  <strong>at least 6 characters long</strong>
-                </mat-error>
-                <mat-error *ngIf="password.hasError('maxlength')">
-                    Password must be  <strong>at most 32 characters</strong>
-                </mat-error>
-              </mat-form-field> 
-          </form>
-        </mat-card-content>
-        <mat-card-actions>
-           &nbsp; &nbsp; <a id="login" mat-raised-button [routerLink]="'/login'">Login</a> &nbsp;&nbsp;&nbsp;
-            <a id="register" mat-raised-button [routerLink]="'/register'">Register</a>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>F̲r̲e̲s̲h̲B̲i̲t̲e̲s̲</mat-card-title>
 
-        </mat-card-actions>
-      </mat-card>
+      </mat-card-header>
+      <img id="backImage" mat-card-image src="../../assets/images/foodback.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+
+        <h2>
+          &nbsp;&nbsp;&nbsp;&nbsp;𝐿𝑜𝑔𝑖𝑛/𝐶𝑟𝑒𝑎𝑡𝑒 𝑦𝑜𝑢𝑟 𝐹𝑜𝑜𝑑𝑖𝑒 𝐴𝑐𝑐𝑜𝑢𝑛𝑡
+        </h2>
+        <form class="login-form">
+          <mat-form-field class="login-full-width">
+            <mat-label>username</mat-label>
+            <input type="text" matInput [formControl]="username" placeholder="rose1">
+            <mat-hint>enter your username </mat-hint>
+            <mat-error *ngIf="username.hasError('required')">
+              Username is <strong>required</strong></mat-error>
+            <mat-error *ngIf="username.hasError('minlength')">
+              Username must be <strong>at least 6 characters long</strong>
+            </mat-error>
+            <mat-error *ngIf="username.hasError('maxlength')">
+              Username must be <strong>at most 16 characters</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="login-full-width">
+            <mat-label>password</mat-label>
+            <input type="text" matInput [formControl]="password" placeholder="aB123456">
+            <mat-hint>enter your password </mat-hint>
+            <mat-error *ngIf="password.hasError('required')">
+              Password is <strong>required</strong></mat-error>
+            <mat-error *ngIf="password.hasError('minlength')">
+              Password must be <strong>at least 6 characters long</strong>
+            </mat-error>
+            <mat-error *ngIf="password.hasError('maxlength')">
+              Password must be <strong>at most 32 characters</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        &nbsp; &nbsp; <a (click)="login()" [disabled]="username.invalid || password.invalid" id="login" mat-raised-button [routerLink]="'/login'">Login</a> &nbsp;&nbsp;&nbsp;
+        <a id="register" mat-raised-button [routerLink]="'/register'">Register</a>
+
+      </mat-card-actions>
+    </mat-card>
     <div id="register">
-    
 
-    
+
+
     </div>
+  </div>
 </div>
