@@ -1,0 +1,67 @@
+.background{
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #C0BFBF;
+  background: -moz-linear-gradient(45deg, #C0BFBF 0%, #8d71a3 50%, #BFC0C0 100%);
+  background: -webkit-linear-gradient(45deg, #C0BFBF 0%, #c195e4 50%, #BFC0C0 100%);
+  background: linear-gradient(45deg, #C0BFBF 0%, #ad8dc8 50%, #BFC0C0 100%);
+}
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-left: 16px;
+}
+
+
+#frame {
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.example-card {
+  max-width: 400px;
+  background: #BFC0C0;
+  background: -moz-linear-gradient(top, #BFC0C0 0%, #A984C7 50%, #C0BFBF 100%);
+  background: -webkit-linear-gradient(top, #BFC0C0 0%, #A984C7 50%, #C0BFBF 100%);
+  background: linear-gradient(to bottom, #BFC0C0 0%, #A984C7 50%, #C0BFBF 100%);
+
+  border-radius: 5%;
+
+}
+
+.example-header-image {
+  background-image: url('../../assets/images/logo.png');
+  background-size: cover;
+}
+
+#login {
+  background-color: #333333;
+}
+
+#register {
+  background-color: #333333;
+}
+
+#backImage {
+  height: 50vh;
+}
+
+.login-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.login-full-width {
+  width: 100%;
+
+}
+ 

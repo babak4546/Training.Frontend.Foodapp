@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 @Component({
@@ -9,7 +8,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent {
   constructor(private loginService:LoginService){}
-  username = new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(18)]);
+  username = new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(25)]);
   password = new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(32)]);
   login(){
     this.loginService.login(this.username.value??'',this.password.value??'');
