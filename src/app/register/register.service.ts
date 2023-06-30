@@ -7,8 +7,12 @@ import { BackendService } from '../services/backend.service';
 export class RegisterService {
 
   constructor(private backend:BackendService) { }
-  register(username:string,password:string,fullname:string,address:string,email:string,phoneNumber:string,
+  register(username:string,password:string,fullname:string,address:string,email:string,phoneNumber:string,){
+    
+  }
+  registerRestaurant(
     restOwnerfullname:string,restOwnerId:string,restOwnerPhonenumber:string,restaurantPhonenumber:string,
-    restaurantEUCode:string,restaurantAddress:string,restsursntEmail:string){
+    restaurantEUCode:string,restaurantAddress:string,restaurantUsername:string){
+      
   }
 }

@@ -11,9 +11,7 @@
   background: -moz-linear-gradient(-45deg, #F8F8F8 0%, #C0C0C0 50%, #808080 100%);
   background: -webkit-linear-gradient(-45deg, #F8F8F8 0%, #C0C0C0 50%, #808080 100%);
   background: linear-gradient(135deg, #F8F8F8 0%, #C0C0C0 50%, #808080 100%);
-
 }
-
 .example-card {
   max-width: 400px;
   background: #F7F2EA;
@@ -21,32 +19,26 @@
   background: -webkit-linear-gradient(left, #F7F2EA 0%, #EDE2D4 45%, #D8C3B7 100%);
   background: linear-gradient(to right, #F7F2EA 0%, #EDE2D4 45%, #D8C3B7 100%);
   border-radius: 5%;
-
 }
-
 .example-header-image {
   background-image: url('../../assets/images/logo.png');
   background-size: cover;
 }
-
 #login {
   background-color: #333333;
 }
-
 #register {
   background-color: #333333;
 }
-
 #backImage {
   height: 50vh;
+ 
 }
-
 .login-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
 }
-
 .login-full-width {
   width: 100%;
 

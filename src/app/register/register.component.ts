@@ -22,26 +22,28 @@ export class RegisterComponent {
   restaurantPhonenumber = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18)]);
   restaurantEUCode = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(18)]);
   restaurantAddress = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]);
-  restsursntUsername =new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-  // register() {
-  //   if (this.selectedOption == 'customer') {
-  //     this.registerService.register(
-  //       this.username.value ?? '',
-  //       this.fullname.value ?? '',
-  //       this.address.value ?? '',
-  //       this.phoneNumber.value ?? '',
-  //       this.email.value ?? '',
-  //       this.password.value ?? '',)
-  //   }
-  //   else if (this.selectedOption == 'restaurant') {
-  //     this.registerService.register(
-  //       this.restOwnerfullname.value ?? '',
-  //       this.restOwnerId.value ?? '',
-  //       this.restOwnerPhonenumber.value ?? '',
-  //       this.restaurantPhonenumber.value ?? '',
-  //       this.restaurantEUCode.value ?? '',
-  //       this.restaurantAddress.value ?? '',
-  //       this.restsursntUsername.value ?? '',)
-  //   } 
+  restaurantUsername =new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
+  register() {
+    if (this.selectedOption == 'customer') {
+      this.registerService.register(
+        this.username.value ?? '',
+        this.fullname.value ?? '',
+        this.address.value ?? '',
+        this.phoneNumber.value ?? '',
+        this.email.value ?? '',
+        this.password.value ?? '',)
+    }
+    else if (this.selectedOption == 'restaurant') {
+      this.registerService.registerRestaurant(
+        this.restOwnerfullname.value ?? '',
+        this.restOwnerId.value ?? '',
+        this.restOwnerPhonenumber.value ?? '',
+        this.restaurantPhonenumber.value ?? '',
+        this.restaurantEUCode.value ?? '',
+        this.restaurantAddress.value ?? '',
+        this.restaurantUsername.value ?? '',)
+    } 
+
+
   }
 }
