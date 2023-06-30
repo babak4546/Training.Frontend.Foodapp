@@ -1,6 +1,6 @@
+
 .background{
   height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,6 +8,9 @@
   background: -moz-linear-gradient(45deg, #C0BFBF 0%, #8d71a3 50%, #BFC0C0 100%);
   background: -webkit-linear-gradient(45deg, #C0BFBF 0%, #c195e4 50%, #BFC0C0 100%);
   background: linear-gradient(45deg, #C0BFBF 0%, #ad8dc8 50%, #BFC0C0 100%);
+  overflow: auto;
+  
+ 
 }
 .mat-mdc-radio-button ~ .mat-mdc-radio-button {
   margin-left: 16px;
@@ -20,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 .example-card {
   max-width: 400px;
@@ -28,6 +32,7 @@
   background: -webkit-linear-gradient(top, #BFC0C0 0%, #A984C7 50%, #C0BFBF 100%);
   background: linear-gradient(to bottom, #BFC0C0 0%, #A984C7 50%, #C0BFBF 100%);
   border-radius: 5%;
+  
 }
 .example-header-image {
   background-image: url('../../assets/images/logo.png');
