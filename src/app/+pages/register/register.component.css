@@ -34,10 +34,10 @@
   border-radius: 5%;
   
 }
-.example-header-image {
+/* .example-header-image {
   background-image: url('../../assets/images/logo.png');
   background-size: cover;
-}
+} */
 #login {
   background-color: #333333;
 }

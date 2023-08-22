@@ -36,6 +36,8 @@
             <mat-label>email</mat-label>
             <input type="email" matInput [formControl]="email" placeholder="Ex.per@example.com">
             <mat-hint>enter your email </mat-hint>
+            <!-- show enterd value -->
+            <!-- <p>{{email.value}}</p> -->
             <mat-error *ngIf="email.hasError('email')">
               email format <strong>wrong!</strong>
             </mat-error>
@@ -100,6 +102,21 @@
               Password must be <strong>at most 32 characters</strong>
             </mat-error>
           </mat-form-field>
+          <!-- confirm password -->
+          <mat-form-field class="login-full-width">
+            <mat-label>confirm</mat-label>
+            <input type="password" matInput [formControl]="confirm" placeholder="aB123456">
+            <mat-hint>enter your password </mat-hint>
+            <mat-error *ngIf="confirm.hasError('required')">
+              Password is <strong>required</strong></mat-error>
+            <mat-error *ngIf="confirm.hasError('minlength')">
+              confirm must be <strong>at least 8 characters long</strong>
+            </mat-error>
+            <mat-error *ngIf="confirm.hasError('maxlength')">
+              confirm must be <strong>at most 32 characters</strong>
+            </mat-error>
+ 
+          </mat-form-field>
         </form>
       </div>
       <!--restaurant owner inputs -->
@@ -127,14 +144,42 @@
             <mat-error *ngIf="restaurantUsername.hasError('required')">
               restsursnt Username is <strong>required</strong></mat-error>
             <mat-error *ngIf="restaurantUsername.hasError('minlength')">
-              restsursnt  Username must be <strong>at least 6 characters long</strong>
+              restsursnt Username must be <strong>at least 6 characters long</strong>
             </mat-error>
             <mat-error *ngIf="restaurantUsername.hasError('maxlength')">
-              restsursnt  Username must be <strong>at most 16 characters</strong>
+              restsursnt Username must be <strong>at most 16 characters</strong>
             </mat-error>
           </mat-form-field>
-          <!-- restaurant owner Id number  -->
+          <!-- restsursnt passwod -->
           <mat-form-field class="login-full-width">
+            <mat-label>password</mat-label>
+            <input type="password" matInput [formControl]="restaurantPassword" placeholder="Ab123456">
+            <mat-hint>enter password </mat-hint>
+            <mat-error *ngIf="restaurantPassword.hasError('required')">
+              password is <strong>required</strong></mat-error>
+            <mat-error *ngIf="restaurantPassword.hasError('minlength')">
+              password must be <strong>at least 8 characters long</strong>
+            </mat-error>
+            <mat-error *ngIf="restaurantPassword.hasError('maxlength')">
+              password must be <strong>at most 32 characters</strong>
+            </mat-error>
+          </mat-form-field>
+            <!-- restsursnt confirm password -->
+            <mat-form-field class="login-full-width">
+              <mat-label>confirm password</mat-label>
+              <input type="password" matInput [formControl]="restaurantConfirmPassword" placeholder="Ab123456">
+              <mat-hint>enter confirm password </mat-hint>
+              <mat-error *ngIf="restaurantConfirmPassword.hasError('required')">
+                confirm password is <strong>required</strong></mat-error>
+              <mat-error *ngIf="restaurantConfirmPassword.hasError('minlength')">
+                confirm password must be <strong>at least 8 characters long</strong>
+              </mat-error>
+              <mat-error *ngIf="restaurantConfirmPassword.hasError('maxlength')">
+                confirm password must be <strong>at most 32 characters</strong>
+              </mat-error>
+            </mat-form-field>
+          <!-- restaurant owner Id number  -->
+          <!-- <mat-form-field class="login-full-width">
             <mat-label>restaurant owner Id number</mat-label>
             <input type="text" matInput [formControl]="restOwnerId" placeholder="like 1234567891">
             <mat-hint>enter restaurant owner Id number</mat-hint>
@@ -146,7 +191,7 @@
             <mat-error *ngIf="restOwnerId.hasError('maxlength')">
               restaurant owner Id number must be <strong>at most 18 characters</strong>
             </mat-error>
-          </mat-form-field>
+          </mat-form-field> -->
           <!-- restaurant owner phone number  -->
           <mat-form-field class="login-full-width">
             <mat-label>restaurant owner phonenumber</mat-label>
@@ -176,7 +221,7 @@
             </mat-error>
           </mat-form-field>
           <!--restaurant EU Code-->
-          <mat-form-field class="login-full-width">
+          <!-- <mat-form-field class="login-full-width">
             <mat-label>restaurant EU Code</mat-label>
             <input type="text" matInput [formControl]="restaurantEUCode" placeholder=" like No. 000/0000">
             <mat-hint>enter restaurant EU Code(Restaurant hygiene approval)</mat-hint>
@@ -188,7 +233,7 @@
             <mat-error *ngIf="restaurantEUCode.hasError('maxlength')">
               restaurant EU Code must be <strong>at most 18 characters</strong>
             </mat-error>
-          </mat-form-field>
+          </mat-form-field> -->
           <!--restaurant address-->
           <mat-form-field class="login-full-width">
             <mat-label>restaurant address</mat-label>
@@ -209,7 +254,7 @@
     </mat-card-content>
     <mat-card-actions>
       <!-- &nbsp; &nbsp; <a (click)="login()" [disabled]="username.invalid || password.invalid" id="login" mat-raised-button [routerLink]="'/login'">Login</a> &nbsp;&nbsp;&nbsp; -->
-      <a id="register" mat-raised-button [routerLink]="'/register'" (click)="register()">Register</a>
+      <!-- <a  [disabled]="checkPasswords==false" id="register" mat-raised-button [routerLink]="'/register'" (click)="register()">Register</a> -->
       &nbsp;<a id="register" mat-raised-button [routerLink]="'/login'">Back To Login</a>
     </mat-card-actions>
   </mat-card>

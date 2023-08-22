@@ -7,10 +7,10 @@
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>F̲r̲e̲s̲h̲B̲i̲t̲e̲s̲</mat-card-title>
       </mat-card-header>
-      <img id="backImage" mat-card-image src="../../assets/images/foodback.jpg" alt="Photo of a Pizza ">
+      <img id="backImage" mat-card-image src="../../../assets/images/OIG.jpeg" alt="Photo of a Pizza ">
       <mat-card-content>
         <h2>
-          &nbsp;&nbsp;&nbsp;&nbsp;𝐿𝑜𝑔𝑖𝑛/𝐶𝑟𝑒𝑎𝑡𝑒 𝑦𝑜𝑢𝑟 𝐹𝑜𝑜𝑑𝑖𝑒 𝐴𝑐𝑐𝑜𝑢𝑛𝑡
+          &nbsp;&nbsp;&nbsp;&nbsp;𝐿𝑜𝑔𝑖𝑛/𝐶𝑟𝑒𝑎𝑡𝑒 𝑦𝑜𝑢𝑟 𝐹𝑜𝑜𝑑𝑖𝑒 𝐴𝑐𝑐𝑜𝑢𝑛𝑡 
         </h2>
         <form class="login-form">
           <mat-form-field class="login-full-width">
@@ -40,12 +40,18 @@
             </mat-error>
           </mat-form-field>
         </form>
+        <div class="message"  *ngIf="message!=''">
+          {{message}}
+        </div>
       </mat-card-content>
+      <mat-progress-bar *ngIf="isBusy==true" mode="query"></mat-progress-bar>
+      
       <mat-card-actions>
-        &nbsp; &nbsp; <a (click)="login()" [disabled]="username.invalid || password.invalid" id="login" mat-raised-button [routerLink]="'/login'">Login</a> &nbsp;&nbsp;&nbsp;
+        &nbsp; &nbsp;  <a (click)="login()" [disabled]="username.invalid || password.invalid || isBusy==true" id="login" mat-raised-button  >Login</a> &nbsp;&nbsp;&nbsp;
         <a id="register" mat-raised-button [routerLink]="'/register'">Register</a>
+        <mat-checkbox name="keepMe" [(ngModel)]="keepMe" class="example-margin">Remember me!</mat-checkbox>
       </mat-card-actions>
     </mat-card>
     <div id="register">
     </div>
-  </div>
+   </div>
