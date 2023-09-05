@@ -72,7 +72,7 @@
         </mat-form-field>
         <!-- password  -->
 
-        <mat-form-field class="login-full-width  ">
+        <mat-form-field class="login-full-width">
           <mat-label>Password</mat-label>
           <input type="password" matInput formControlName="password" placeholder="aB123@$!">
           <mat-hint>Enter a password with at least 8 characters, including letters and numbers.</mat-hint>
@@ -84,7 +84,7 @@
             *ngIf="RegisterForm.get('password')?.hasError('pattern') && RegisterForm.get('password')?.touched">
             Password must be at least 8 characters long and include both letters and numbers.
           </mat-error>
-          <mat-error class="passer"
+          <mat-error class="passer2"
             *ngIf="RegisterForm.get('password')?.hasError('minlength') && RegisterForm.get('password')?.touched">
             Password must be at least 8 characters long.
           </mat-error>
