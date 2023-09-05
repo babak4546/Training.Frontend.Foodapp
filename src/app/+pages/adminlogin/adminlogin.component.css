@@ -1,0 +1,80 @@
+#frame {
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8F8F8;
+  background: -moz-linear-gradient(-45deg, #F8F8F8 0%, #C0C0C0 50%, #808080 100%);
+  background: -webkit-linear-gradient(-45deg, #F8F8F8 0%, #C0C0C0 50%, #808080 100%);
+  background: linear-gradient(135deg, #F8F8F8 0%, #C0C0C0 50%, #808080 100%);
+}
+.example-card {
+  max-width: 400px;
+  background: #F7F2EA;
+  background: -moz-linear-gradient(left, #F7F2EA 0%, #EDE2D4 45%, #D8C3B7 100%);
+  background: -webkit-linear-gradient(left, #F7F2EA 0%, #EDE2D4 45%, #D8C3B7 100%);
+  background: linear-gradient(to right, #F7F2EA 0%, #EDE2D4 45%, #D8C3B7 100%);
+  border-radius: 5%;
+}
+.example-header-image {
+  background-image: url('../../../assets/images/logo.png');
+  background-size: cover;
+}
+#login {
+  background-color: #333333;
+}
+#register {
+  background-color: #333333;
+}
+#backImage {
+  height: 50vh;
+ 
+}
+.login-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.login-full-width {
+  width: 100%;
+
+}
+.example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+
+}
+
+ 
+
+ 
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+}
+
+.message{
+  animation: shake 0.5s;
+  color: #170a1c;
+  font-size: larger;
+  
+}
+@keyframes  shake{
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

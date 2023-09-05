@@ -15,10 +15,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './+pages/login/login.component';
+import { AdminLoginComponent } from './+pages/adminlogin/adminlogin.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    AdminLoginComponent,
     RegisterComponent
   ],
   imports: [

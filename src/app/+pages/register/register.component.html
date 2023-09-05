@@ -8,254 +8,102 @@
       <h2>
         &nbsp;&nbsp;&nbsp;&nbsp;𝐶𝑟𝑒𝑎𝑡𝑒 𝑦𝑜𝑢𝑟 𝐹𝑜𝑜𝑑𝑖𝑒 𝐴𝑐𝑐𝑜𝑢𝑛𝑡
       </h2>
-      <div class="whoAreyou">
-        <mat-radio-group [(ngModel)]="selectedOption" aria-label="Select an option">
-          <mat-radio-button value="customer">I'm a Customer</mat-radio-button>
-          <mat-radio-button value="restaurant">I'm a Restaurant Owner</mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <div *ngIf="selectedOption == 'customer'" class="Customer">
-        <!--Customer inputs -->
-        <form class="login-form">
-          <!-- geting fullname -->
-          <mat-form-field class="login-full-width">
-            <mat-label>fullname</mat-label>
-            <input type="text" matInput [formControl]="fullname" placeholder="Rose Gomez">
-            <mat-hint>enter your fullname </mat-hint>
-            <mat-error *ngIf="fullname.hasError('required')">
-              fullname is <strong>required</strong></mat-error>
-            <mat-error *ngIf="fullname.hasError('minlength')">
-              fullname must be <strong>at least 6 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="fullname.hasError('maxlength')">
-              fullname must be <strong>at most 16 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- geting email from customer -->
-          <mat-form-field class="login-full-width">
-            <mat-label>email</mat-label>
-            <input type="email" matInput [formControl]="email" placeholder="Ex.per@example.com">
-            <mat-hint>enter your email </mat-hint>
-            <!-- show enterd value -->
-            <!-- <p>{{email.value}}</p> -->
-            <mat-error *ngIf="email.hasError('email')">
-              email format <strong>wrong!</strong>
-            </mat-error>
-            <mat-error *ngIf="email.hasError('maxlength')">
-              email must be <strong>at most 30 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- geting username -->
-          <mat-form-field class="login-full-width">
-            <mat-label>username</mat-label>
-            <input type="text" matInput [formControl]="username" placeholder="rose1">
-            <mat-hint>enter your username </mat-hint>
-            <mat-error *ngIf="username.hasError('required')">
-              Username is <strong>required</strong></mat-error>
-            <mat-error *ngIf="username.hasError('minlength')">
-              Username must be <strong>at least 6 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="username.hasError('maxlength')">
-              Username must be <strong>at most 16 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- geting address -->
-          <mat-form-field class="login-full-width">
-            <mat-label>address</mat-label>
-            <input type="text" matInput [formControl]="address"
-              placeholder="145 Evie Green	City	Lake Betsy S. Carolina">
-            <mat-hint>enter your address </mat-hint>
-            <mat-error *ngIf="address.hasError('required')">
-              address is <strong>required</strong></mat-error>
-            <mat-error *ngIf="address.hasError('minlength')">
-              address must be <strong>at least 20 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="address.hasError('maxlength')">
-              address must be <strong>at most 100 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- getting phone number -->
-          <mat-form-field class="login-full-width">
-            <mat-label>phone number</mat-label>
-            <input type="tel" matInput [formControl]="phoneNumber" placeholder="+13023064112">
-            <mat-hint>enter your phone number </mat-hint>
-            <mat-error *ngIf="phoneNumber.hasError('required')">
-              phone number is <strong>required</strong></mat-error>
-            <mat-error *ngIf="phoneNumber.hasError('minlength')">
-              phone number must be <strong>at least 6 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="phoneNumber.hasError('maxlength')">
-              phone number must be <strong>at most 16 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!--getting password  -->
-          <mat-form-field class="login-full-width">
-            <mat-label>password</mat-label>
-            <input type="password" matInput [formControl]="password" placeholder="aB123456">
-            <mat-hint>enter your password </mat-hint>
-            <mat-error *ngIf="password.hasError('required')">
-              Password is <strong>required</strong></mat-error>
-            <mat-error *ngIf="password.hasError('minlength')">
-              Password must be <strong>at least 6 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="password.hasError('maxlength')">
-              Password must be <strong>at most 32 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- confirm password -->
-          <mat-form-field class="login-full-width">
-            <mat-label>confirm</mat-label>
-            <input type="password" matInput [formControl]="confirm" placeholder="aB123456">
-            <mat-hint>enter your password </mat-hint>
-            <mat-error *ngIf="confirm.hasError('required')">
-              Password is <strong>required</strong></mat-error>
-            <mat-error *ngIf="confirm.hasError('minlength')">
-              confirm must be <strong>at least 8 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="confirm.hasError('maxlength')">
-              confirm must be <strong>at most 32 characters</strong>
-            </mat-error>
- 
-          </mat-form-field>
-        </form>
-      </div>
-      <!--restaurant owner inputs -->
-      <div *ngIf="selectedOption == 'restaurant'" class="Restaurant">
-        <form class="login-form">
-          <!-- geting restaurant owner fullname -->
-          <mat-form-field class="login-full-width">
-            <mat-label>restaurant owner fullname</mat-label>
-            <input type="text" matInput [formControl]="restOwnerfullname" placeholder="gordon reynolds">
-            <mat-hint>enter restaurant owner fullname </mat-hint>
-            <mat-error *ngIf="restOwnerfullname.hasError('required')">
-              restaurant owner fullname is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restOwnerfullname.hasError('minlength')">
-              restaurant owner fullname must be <strong>at least 6 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restOwnerfullname.hasError('maxlength')">
-              restaurant owner fullname must be <strong>at most 16 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- restsursnt username -->
-          <mat-form-field class="login-full-width">
-            <mat-label>restsursnt uername</mat-label>
-            <input type="text" matInput [formControl]="restaurantUsername" placeholder="The Ritz">
-            <mat-hint>enter restsursnt username </mat-hint>
-            <mat-error *ngIf="restaurantUsername.hasError('required')">
-              restsursnt Username is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restaurantUsername.hasError('minlength')">
-              restsursnt Username must be <strong>at least 6 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restaurantUsername.hasError('maxlength')">
-              restsursnt Username must be <strong>at most 16 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- restsursnt passwod -->
-          <mat-form-field class="login-full-width">
-            <mat-label>password</mat-label>
-            <input type="password" matInput [formControl]="restaurantPassword" placeholder="Ab123456">
-            <mat-hint>enter password </mat-hint>
-            <mat-error *ngIf="restaurantPassword.hasError('required')">
-              password is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restaurantPassword.hasError('minlength')">
-              password must be <strong>at least 8 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restaurantPassword.hasError('maxlength')">
-              password must be <strong>at most 32 characters</strong>
-            </mat-error>
-          </mat-form-field>
-            <!-- restsursnt confirm password -->
-            <mat-form-field class="login-full-width">
-              <mat-label>confirm password</mat-label>
-              <input type="password" matInput [formControl]="restaurantConfirmPassword" placeholder="Ab123456">
-              <mat-hint>enter confirm password </mat-hint>
-              <mat-error *ngIf="restaurantConfirmPassword.hasError('required')">
-                confirm password is <strong>required</strong></mat-error>
-              <mat-error *ngIf="restaurantConfirmPassword.hasError('minlength')">
-                confirm password must be <strong>at least 8 characters long</strong>
-              </mat-error>
-              <mat-error *ngIf="restaurantConfirmPassword.hasError('maxlength')">
-                confirm password must be <strong>at most 32 characters</strong>
-              </mat-error>
-            </mat-form-field>
-          <!-- restaurant owner Id number  -->
-          <!-- <mat-form-field class="login-full-width">
-            <mat-label>restaurant owner Id number</mat-label>
-            <input type="text" matInput [formControl]="restOwnerId" placeholder="like 1234567891">
-            <mat-hint>enter restaurant owner Id number</mat-hint>
-            <mat-error *ngIf="restOwnerId.hasError('required')">
-              restaurant owner Id number is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restOwnerId.hasError('minlength')">
-              restaurant owner Id number must be <strong>at least 9 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restOwnerId.hasError('maxlength')">
-              restaurant owner Id number must be <strong>at most 18 characters</strong>
-            </mat-error>
-          </mat-form-field> -->
-          <!-- restaurant owner phone number  -->
-          <mat-form-field class="login-full-width">
-            <mat-label>restaurant owner phonenumber</mat-label>
-            <input type="tel" matInput [formControl]="restOwnerPhonenumber" placeholder="like +13023064102">
-            <mat-hint>enter restaurant owner phonenumber</mat-hint>
-            <mat-error *ngIf="restOwnerPhonenumber.hasError('required')">
-              restaurant owner phonenumber is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restOwnerPhonenumber.hasError('minlength')">
-              restaurant owner phonenumber must be <strong>at least 8 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restOwnerPhonenumber.hasError('maxlength')">
-              restaurant owner phonenumber must be <strong>at most 18 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!-- restaurant  phone number  -->
-          <mat-form-field class="login-full-width">
-            <mat-label>restaurant phonenumber</mat-label>
-            <input type="tel" matInput [formControl]="restaurantPhonenumber" placeholder="like 202-555-0142">
-            <mat-hint>enter restaurant phonenumber</mat-hint>
-            <mat-error *ngIf="restaurantPhonenumber.hasError('required')">
-              restaurant phonenumber is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restaurantPhonenumber.hasError('minlength')">
-              restaurant phonenumber must be <strong>at least 8 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restaurantPhonenumber.hasError('maxlength')">
-              restaurant phonenumber must be <strong>at most 18 characters</strong>
-            </mat-error>
-          </mat-form-field>
-          <!--restaurant EU Code-->
-          <!-- <mat-form-field class="login-full-width">
-            <mat-label>restaurant EU Code</mat-label>
-            <input type="text" matInput [formControl]="restaurantEUCode" placeholder=" like No. 000/0000">
-            <mat-hint>enter restaurant EU Code(Restaurant hygiene approval)</mat-hint>
-            <mat-error *ngIf="restaurantEUCode.hasError('required')">
-              restaurant EU Code is <strong>required</strong></mat-error>
-            <mat-error *ngIf="restaurantEUCode.hasError('minlength')">
-              restaurant EU Code must be <strong>at least 10 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restaurantEUCode.hasError('maxlength')">
-              restaurant EU Code must be <strong>at most 18 characters</strong>
-            </mat-error>
-          </mat-form-field> -->
-          <!--restaurant address-->
-          <mat-form-field class="login-full-width">
-            <mat-label>restaurant address</mat-label>
-            <input type="text" matInput [formControl]="restaurantAddress"
-              placeholder=" 123 Evie Green	City	Lake Betsy S. Carolina ">
-            <mat-hint>enter restaurant address</mat-hint>
-            <mat-error *ngIf="restaurantAddress.hasError('required')">
-              restaurant restaurant <strong>required</strong></mat-error>
-            <mat-error *ngIf="restaurantAddress.hasError('minlength')">
-              restaurant restaurant <strong>at least 10 characters long</strong>
-            </mat-error>
-            <mat-error *ngIf="restaurantAddress.hasError('maxlength')">
-              restaurant restaurant <strong>at most 100 characters</strong>
-            </mat-error>
-          </mat-form-field>
-        </form>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <!-- &nbsp; &nbsp; <a (click)="login()" [disabled]="username.invalid || password.invalid" id="login" mat-raised-button [routerLink]="'/login'">Login</a> &nbsp;&nbsp;&nbsp; -->
-      <!-- <a  [disabled]="checkPasswords==false" id="register" mat-raised-button [routerLink]="'/register'" (click)="register()">Register</a> -->
-      &nbsp;<a id="register" mat-raised-button [routerLink]="'/login'">Back To Login</a>
-    </mat-card-actions>
-  </mat-card>
-  <div id="register">
+
+      <form [formGroup]="RegisterForm" class="login-form">
+        <div class="whoAreyou">
+          <mat-radio-group formControlName="type" aria-label="Select an option">
+            <mat-radio-button value="3">I'm a Customer</mat-radio-button>
+            <mat-radio-button value="2">I'm a Restaurant Owner</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field class="login-full-width">
+          <mat-label>FullName</mat-label>
+          <input type="text" matInput formControlName="fullname" placeholder="Rose Gomez">
+          <mat-hint>Enter your fullName</mat-hint>
+          <mat-error
+            *ngIf="RegisterForm.get('fullname')?.hasError('required') && RegisterForm.get('fullname')?.touched">
+            <strong class="fnameer">
+              Full name is required.
+            </strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- geting email from customer -->
+        <!-- Email input -->
+        <mat-form-field class="login-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="example@example.com">
+          <mat-hint>Enter a valid email address</mat-hint>
+          <mat-error *ngIf="RegisterForm.get('email')?.hasError('required') && RegisterForm.get('email')?.touched">
+            <strong class="emailer">Email is required.</strong>
+          </mat-error>
+          <mat-error *ngIf="RegisterForm.get('email')?.hasError('email') && RegisterForm.get('email')?.touched">
+            <strong class="emailer2">
+              Please enter a valid email address.
+            </strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Phone number input -->
+        <mat-form-field class="login-full-width">
+          <mat-label>Phone Number</mat-label>
+          <input type="tel" matInput formControlName="phoneNumber" placeholder="09120001122">
+          <mat-hint>Enter your phone number starting with '0'</mat-hint>
+          <mat-error
+            *ngIf="RegisterForm.get('phoneNumber')?.hasError('required') && RegisterForm.get('phoneNumber')?.touched">
+            <strong class="phoneer">
+              Phone number is required.
+            </strong>
+          </mat-error>
+          <mat-error
+            *ngIf="RegisterForm.get('phoneNumber')?.hasError('pattern') && RegisterForm.get('phoneNumber')?.touched">
+            <strong class="phoneer2">
+              Phone number must be 11 digits and start with '0'.
+            </strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- geting address -->
+        <mat-form-field class="login-full-width">
+          <mat-label>Address</mat-label>
+          <input type="text" matInput formControlName="address" placeholder="hamedan midan....">
+          <mat-hint>Enter your Address</mat-hint>
+          <mat-error *ngIf="RegisterForm.get('address')?.hasError('required') && RegisterForm.get('address')?.touched">
+            <strong class="addrer">Address is required.</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- password  -->
+
+        <mat-form-field class="login-full-width  ">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" placeholder="aB123@$!">
+          <mat-hint>Enter a password with at least 8 characters, including letters and numbers.</mat-hint>
+          <mat-error class="passer"
+            *ngIf="RegisterForm.get('password')?.hasError('required') && RegisterForm.get('password')?.touched">
+            Password is required.
+          </mat-error>
+          <mat-error class="passer"
+            *ngIf="RegisterForm.get('password')?.hasError('pattern') && RegisterForm.get('password')?.touched">
+            Password must be at least 8 characters long and include both letters and numbers.
+          </mat-error>
+          <mat-error class="passer"
+            *ngIf="RegisterForm.get('password')?.hasError('minlength') && RegisterForm.get('password')?.touched">
+            Password must be at least 8 characters long.
+          </mat-error>
+        </mat-form-field>
+        <!-- confirm password -->
+        <mat-form-field class="login-full-width">
+          <mat-label>confirm</mat-label>
+          <input type="password" matInput formControlName="confirm" placeholder="12345678aA@">
+          <mat-error *ngIf="RegisterForm.get('confirm')?.hasError('required') && RegisterForm.get('confirm')?.touched">
+            <strong class="confer">
+              confirm is required.
+            </strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <mat-card-actions>
+        <a id="register" [disabled]="!passwordsMatch()" (click)="register()" mat-raised-button
+          [routerLink]="'/login'">Register</a>
+        &nbsp;<a id="register" mat-raised-button [routerLink]="'/login'">Back To Login</a>
+      </mat-card-actions>
+
+      <div id="register">

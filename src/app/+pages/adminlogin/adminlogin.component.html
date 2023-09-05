@@ -7,22 +7,22 @@
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>F̲r̲e̲s̲h̲B̲i̲t̲e̲s̲</mat-card-title>
       </mat-card-header>
-      <img id="backImage" mat-card-image src="../../../assets/images/OIG.jpeg" alt="Photo of a Pizza ">
+
       <mat-card-content>
         <h2>
           &nbsp;&nbsp;&nbsp;&nbsp;𝐿𝑜𝑔𝑖𝑛/𝐶𝑟𝑒𝑎𝑡𝑒 𝑦𝑜𝑢𝑟 𝐹𝑜𝑜𝑑𝑖𝑒 𝐴𝑐𝑐𝑜𝑢𝑛𝑡 
         </h2>
         <form class="login-form">
           <mat-form-field class="login-full-width">
-            <mat-label>phoneNumbr</mat-label>
+            <mat-label>username</mat-label>
             <input type="text" matInput [formControl]="username" placeholder="rose1">
-            <mat-hint>enter your phoneNumber </mat-hint>
+            <mat-hint>enter your username </mat-hint>
             <mat-error *ngIf="username.hasError('required')">
               Username is <strong>required</strong></mat-error>
             <mat-error *ngIf="username.hasError('minlength')">
               Username must be <strong>at least 6 characters long</strong>
             </mat-error>
-            <mat-error  *ngIf="username.hasError('maxlength')">
+            <mat-error *ngIf="username.hasError('maxlength')">
               Username must be <strong>at most 16 characters</strong>
             </mat-error>
           </mat-form-field>
@@ -48,7 +48,6 @@
       
       <mat-card-actions>
         &nbsp; &nbsp;  <a (click)="login()" [disabled]="username.invalid || password.invalid || isBusy==true" id="login" mat-raised-button  >Login</a> &nbsp;&nbsp;&nbsp;
-        <a id="register" mat-raised-button [routerLink]="'/register'">Register</a>
         <mat-checkbox name="keepMe" [(ngModel)]="keepMe" class="example-margin">Remember me!</mat-checkbox>
       </mat-card-actions>
     </mat-card>

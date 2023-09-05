@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add New Restaurant</h1>
+<div mat-dialog-content>
+    <form class="login-form">
+        <mat-form-field class="login-full-width">
+          <mat-label> restaurant title</mat-label>
+          <input type="text" matInput [formControl]="titleFormControl" placeholder="restaurant title">
+          <mat-hint>restaurant title </mat-hint>
+          <mat-error *ngIf="titleFormControl.hasError('required')">
+            restaurant title must be <strong>Enterd</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="login-full-width">
+          <mat-label> restaurant Address</mat-label>
+          <input type="text" matInput [formControl]="addressFormControl" placeholder="restaurant Address">
+          <mat-hint>restaurant Address </mat-hint>
+          <mat-error *ngIf="addressFormControl.hasError('required')">
+            restaurant Address must be <strong>enterd</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </form>
+</div>
+<div mat-dialog-actions>
+  <button cdkFoucusInitial mat-button >Ok</button>
+  <button  mat-raised-button >Cancel</button>
+</div>

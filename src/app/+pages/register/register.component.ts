@@ -1,73 +1,61 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BackendSecurityService } from 'src/app/+services/backend-security.service';
- 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private registerService: BackendSecurityService) { }
+  constructor(private backend: BackendSecurityService, private fb: FormBuilder, private router: Router) { }
+  isBusy: boolean = false;
   selectedOption!: string;
-  checkPasswords: boolean = false;
-  username = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(25)]);
-  fullname = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(25)]);
-  address = new FormControl('', [Validators.required, Validators.minLength(20), Validators.maxLength(100)]);
-  phoneNumber = new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]);
-  email = new FormControl('', [Validators.email, Validators.maxLength(35)]);
-  password = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]);
-  confirm = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]);
+  RegisterForm = this.fb.group({
+    type: ['3'], // default is 3
+    fullname: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    username: ['', Validators.required],
+    phoneNumber: ['', [Validators.required, Validators.pattern('0[0-9]{10}')]], // Pattern validation for a 10-digit phone number
+    address: ['', Validators.required],
+    password: ['', [Validators.required,Validators.pattern('^(?=.*[a-zA-Z])(?=.*\\d).{8,}$'), Validators.minLength(8)]],
+    confirm: ['', Validators.required]
 
-  restOwnerfullname = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
+  });
 
-  restOwnerId = new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(18)]);
-  restOwnerPhonenumber = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18)]);
-  restaurantPhonenumber = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(18)]);
-  restaurantEUCode = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(18)]);
-  restaurantAddress = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]);
-  restaurantUsername = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]);
-  restaurantPassword = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]);
-  restaurantConfirmPassword = new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(32)]);
-  checkPassword() {
-    if (this.selectedOption == 'customer') {
-      if (this.password.value == this.confirm.value) {
-        this.checkPasswords = true;
-      }
-      else {
-        this.checkPasswords = false;
-      }
+  selectedValue: boolean = true;
+  register() {
+    this.isBusy = true;
+    let username: string | undefined = this.RegisterForm.controls.username.value?.toString();
+    let password: string | undefined = this.RegisterForm.controls.password.value?.toString();
+    let fullname: string | undefined = this.RegisterForm.controls.username.value?.toString();
+    let email: string | undefined = this.RegisterForm.controls.email.value?.toString();
+    let phoneNumber: string | undefined = this.RegisterForm.controls.phoneNumber.value?.toString();
+    let type: number | undefined = Number(this.RegisterForm.controls.type.value?.toString());
+    // let confirm: string | undefined = this.RegisterForm.controls.confirm.value?.toString();
+    //  let address: string | undefined = this.RegisterForm.controls.address.value?.toString();
+
+    this.backend.signup(username ?? '', password ?? '', type ?? 3, fullname ?? '', phoneNumber ?? '', email ?? '').subscribe(r => {
+      this.router.navigate(['/login'])
+    });
+  }
+  passwordsMatch(): boolean {
+    const pass = this.RegisterForm.controls.password.value?.toString();
+    const conf = this.RegisterForm.controls.confirm.value?.toString();
+    const selected = this.selectedOption;
+
+
+    if (conf === pass) {
+
+      return true
+
     }
-    else if (this.selectedOption == 'restaurant') {
-      if (this.restaurantPassword != this.restaurantConfirmPassword) {
-        this.checkPasswords = false;
-      }
-      else {
-        this.checkPasswords = true;
-      }
-    }
+    else {
 
-  // }
-  // register() {
-  //   if (this.selectedOption == 'customer') {
-  //     this.registerService.register(
-  //       this.username.value ?? '',
-  //       this.fullname.value ?? '',
-  //       this.address.value ?? '',
-  //       this.phoneNumber.value ?? '',
-  //       this.email.value ?? '',
-  //       this.password.value ?? '',)
-  //   }
-  //   else if (this.selectedOption == 'restaurant') {
-  //     this.registerService.registerRestaurant(
-  //       this.restOwnerfullname.value ?? '',
-  //       this.restOwnerId.value ?? '',
-  //       this.restOwnerPhonenumber.value ?? '',
-  //       this.restaurantPhonenumber.value ?? '',
-  //       this.restaurantEUCode.value ?? '',
-  //       this.restaurantAddress.value ?? '',
-  //       this.restaurantUsername.value ?? '',)
-  //   }
+      return false
+    }
 
   }
+
 }
