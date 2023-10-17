@@ -47,7 +47,7 @@
         <mat-form-field class="login-full-width">
           <mat-label>Phone Number</mat-label>
           <input type="tel" matInput formControlName="phoneNumber" placeholder="09120001122">
-          <mat-hint>Enter your phone number starting with '0'</mat-hint>
+          <mat-hint>Enter your phone number starting with '09'</mat-hint>
           <mat-error
             *ngIf="RegisterForm.get('phoneNumber')?.hasError('required') && RegisterForm.get('phoneNumber')?.touched">
             <strong class="phoneer">
@@ -57,7 +57,7 @@
           <mat-error
             *ngIf="RegisterForm.get('phoneNumber')?.hasError('pattern') && RegisterForm.get('phoneNumber')?.touched">
             <strong class="phoneer2">
-              Phone number must be 11 digits and start with '0'.
+              Phone number must be 11 digits and start with '09'.
             </strong>
           </mat-error>
         </mat-form-field>

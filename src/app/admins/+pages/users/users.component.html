@@ -1,6 +1,7 @@
 <app-data-grid
 [datasource]="'http://localhost:5244/list'"
-[columns]="['username','fullname','phonenumber','verifide']"
->
-    
+[columns]="_columns"
+(onEdit)="edit($event)"
+(onDelete)="remove($event)"
+>  
 </app-data-grid>

@@ -1,22 +1,50 @@
 .grid {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .grid td, .grid th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .grid tr:nth-child(even){background-color: #a33c3c;}
-  
-  .grid tr:hover {background-color: #764646;}
-  
-  .grid th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #557935;
-    color: white;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.grid td,
+.grid th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.grid tr:nth-child(even) {
+  background-color: #a33c3c;
+}
+
+.grid tr:hover {
+  background-color: #764646;
+}
+
+.grid th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0e062d;
+  color: white;
+}
+
+.centered-button {
+  position: relative;
+  left: 5px;
+}
+
+/* .button {
+  background-color: inherit;
+background-color: fff;
+} */
+.input {
+  background-color: inherit;
+  border: solid 1px #fff;
+  border-radius: 5px;
+  display: inline;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.input::placeholder {
+  color: rgb(255, 255, 255);
+}

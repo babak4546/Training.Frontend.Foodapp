@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from './backend.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,18 @@ export class BackendSecurityService extends BackendService {
         phoneNumber:phoneNumber,
         email:email,
         type:type
-      });
+      }).pipe(
+        catchError(this.handleError)
+      );
     }
   }
-}
+    private handleError(error:HttpErrorResponse) {
+      if (error.status==500) {
+
+        return throwError(()=> new Error (error.error.error))
+      }
+      return "OK";
+    }
+  }
+
  

@@ -1,9 +1,13 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+
+<mat-sidenav-container  style="background-color: #000000;" class="sidenav-container">
+  <mat-sidenav   style="background-color:  #0e062d;" #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar  style="background-color: #0e062d;">Menu
+      <mat-icon  fontIcon="menu"></mat-icon>
+
+    </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="'users'">Users</a>
       <a mat-list-item href="#">Restaurant Requests</a>
@@ -12,7 +16,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar style="background-color:  #0e062d;" color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -21,7 +25,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Novin Food App </span>
+      <span >Novin Food App </span>
     </mat-toolbar>
     <div class="content">
       <router-outlet></router-outlet>
