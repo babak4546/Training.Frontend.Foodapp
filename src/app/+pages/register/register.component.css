@@ -181,3 +181,12 @@
   border-radius: 5px;
 
 }
+.err{
+  background-color: red;
+  color:#333333;
+  border: red 1px solid;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+
+}

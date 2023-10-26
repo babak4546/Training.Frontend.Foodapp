@@ -100,9 +100,12 @@
           </mat-error>
         </mat-form-field>
       </form>
+      <div *ngIf="message" class="err">
+        {{message}}
+      </div>
       <mat-card-actions>
         <a id="register" [disabled]="!passwordsMatch()" (click)="register()" mat-raised-button
-          [routerLink]="'/login'">Register</a>
+          >Register</a>
         &nbsp;<a id="register" mat-raised-button [routerLink]="'/login'">Back To Login</a>
       </mat-card-actions>
 
