@@ -9,12 +9,20 @@ export class BackendService {
   securityAPI: string = 'http://localhost:5046';
   constructor(public http: HttpClient) { }
   mypost(url: string, data: any) {
-    return this.http.post(url, data)
+    let headers={};
+    if (sessionStorage.getItem('token')){
+      headers={'Authorization': 'Bearer '+sessionStorage.getItem('token')};
+    }
+    return this.http.post(url, data,{headers:headers})
       .pipe(
         catchError(err => this.handleError(err))
 )
   }
   myget(url: string,) {
+    let headers={};
+    if (sessionStorage.getItem('token')){
+      headers={'Authorization': 'Bearer '+sessionStorage.getItem('token')};
+    }
     return this.http.get(url)
       .pipe(
         catchError(err=>this.handleError(err))
@@ -24,7 +32,7 @@ export class BackendService {
 
       if (err.status == 500) {
 
-        return of({ severError: err.error.error });
+        return of({ serverError: err.error.error });
       }
       return of({ serverError: 'Connection error' })
     

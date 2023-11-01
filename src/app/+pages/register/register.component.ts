@@ -30,9 +30,9 @@ export class RegisterComponent {
   selectedValue: boolean = true;
   register() {
     this.isBusy = true;
-    // let username: string | undefined = this.RegisterForm.controls.username.value?.toString();
+    //  let username: string | undefined = this.RegisterForm.controls.username.value?.toString();
     let password: string | undefined = this.RegisterForm.controls.password.value?.toString();
-    let fullname: string | undefined = this.RegisterForm.controls.username.value?.toString();
+    let fullname: string | undefined = this.RegisterForm.controls.fullname.value?.toString();
     let email: string | undefined = this.RegisterForm.controls.email.value?.toString();
     let phoneNumber: string | undefined = this.RegisterForm.controls.phoneNumber.value?.toString();
     let type: number | undefined = Number(this.RegisterForm.controls.type.value?.toString());
@@ -43,7 +43,7 @@ export class RegisterComponent {
 
       .subscribe(r =>
       {
-        if (r &&(r as any ).severError) {
+        if (r &&(r as any ).serverError) {
              this.message=(r as any).serverError;
              this.isBusy = false;
 

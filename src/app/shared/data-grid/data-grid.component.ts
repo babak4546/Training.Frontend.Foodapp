@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,6 +6,7 @@ import { DataGridColumn } from './data-grid-column';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import { BackendService } from 'src/app/+services/backend.service';
 
 @Component({
   selector: 'app-data-grid',
@@ -16,17 +17,15 @@ import {MatInputModule} from '@angular/material/input';
 })
 export class DataGridComponent implements OnInit {
 data:any[]=[];
-constructor(private http:HttpClient) {}
-  ngOnInit(): void {
-    this.http.post(this.datasource,{}).subscribe(result=>{
+backend=inject(BackendService);
+ngOnInit(): void {
+    this.backend.mypost(this.datasource,{}).subscribe(result=>{
        this.data=result as any[];
 
     });
   }
 @Input() datasource:string='';
-
 @Input() columns:DataGridColumn[]=[];
-
 @Output() onEdit=new EventEmitter<any>();
 @Output() onDelete=new EventEmitter<any>();
 
